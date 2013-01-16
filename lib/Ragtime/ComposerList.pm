@@ -3,6 +3,7 @@ package Ragtime::ComposerList;
 use strict;
 use parent 'Tekki::Db::SimpleList';
 
+# in the real world, this information would be retrieved from the database
 my @composers = (
   ['Felix Arndt',       1889, 1918, '"Nola" (1915)'],
   ['May Aufderheide',   1888, 1972, '"Dusty" (1908)'],
@@ -133,6 +134,10 @@ sub died {
 
 sub name {
   return $_[0]->_get_string('name');
+}
+
+sub to_arrayref {
+  return \@composers;
 }
 
 1;
