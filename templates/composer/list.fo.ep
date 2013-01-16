@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+  <fo:layout-master-set>
+    <fo:simple-page-master master-name="first" margin-right="1.5cm" margin-left="1.5cm" margin-bottom="2cm" margin-top="1cm" page-width="21cm" page-height="29.7cm">
+      <fo:region-body margin-top="2cm" margin-bottom="3cm" />
+      <fo:region-before extent="2cm" />
+      <fo:region-after extent="0.5cm" />
+    </fo:simple-page-master>
+  </fo:layout-master-set>
+
+  <fo:page-sequence master-reference="first">
+    <fo:static-content flow-name="xsl-region-before">
+      <fo:block line-height="14pt" font-size="10pt" text-align="end"><%= title %></fo:block>
+    </fo:static-content>
+    <fo:static-content flow-name="xsl-region-after">
+      <fo:block line-height="14pt" font-size="10pt" text-align="end">Page <fo:page-number />
+      </fo:block>
+    </fo:static-content>
+
+    <fo:flow flow-name="xsl-region-body">
+
+
+      <fo:block space-before.optimum="3cm">
+      <%= $subtitle %>
+      </fo:block>
+
+      <fo:table table-layout="fixed" width="100%">
+        <fo:table-column column-width="proportional-column-width(1)" />
+        <fo:table-column column-width="2cm" />
+        <fo:table-column column-width="2cm" />
+        <fo:table-column column-width="proportional-column-width(2)" />
+
+        <fo:table-header>
+          <fo:table-row>
+            <fo:table-cell>
+              <fo:block font-weight="bold" text-align="center" background-color="#DDDDDD">
+        Name
+        </fo:block>
+            </fo:table-cell>
+            <fo:table-cell>
+              <fo:block font-weight="bold" text-align="center" background-color="#DDDDDD">
+        Born
+        </fo:block>
+            </fo:table-cell>
+            <fo:table-cell>
+              <fo:block font-weight="bold" text-align="center" background-color="#DDDDDD">
+        Died
+        </fo:block>
+            </fo:table-cell>
+            <fo:table-cell>
+              <fo:block font-weight="bold" text-align="center" background-color="#DDDDDD">
+        Famous compositions
+        </fo:block>
+            </fo:table-cell>
+          </fo:table-row>
+        </fo:table-header>
+
+        <fo:table-body>
+        <% while ($list->next) { %>
+          <fo:table-row>
+            <fo:table-cell>
+              <fo:block border-right-width="0.5pt" text-align="left">
+                <%= $list->name %>
+              </fo:block>
+            </fo:table-cell>
+            <fo:table-cell>
+              <fo:block border-right-width="0.5pt" text-align="center">
+                <%= $list->born %>
+              </fo:block>
+            </fo:table-cell>
+            <fo:table-cell>
+              <fo:block border-right-width="0.5pt" text-align="center">
+                <%= $list->died %>
+              </fo:block>
+            </fo:table-cell>
+            <fo:table-cell>
+              <fo:block border-right-width="0.5pt" text-align="left">
+                <%= $list->compositions %>
+              </fo:block>
+            </fo:table-cell>
+          </fo:table-row>
+        <% } %>
+        </fo:table-body>
+      </fo:table>
+
+    </fo:flow>
+  </fo:page-sequence>
+</fo:root>

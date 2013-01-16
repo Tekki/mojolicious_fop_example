@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+  <head><title><%= title %></title></head>
+  <body>
+  <h3><%= title %></h3>
+  <h1><%= $subtitle %></h1>
+  <%= content %>
+  </body>
+</html>

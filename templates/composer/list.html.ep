@@ -1,0 +1,22 @@
+% layout 'default';
+<a href="<%= url_with->query(format => 'pdf') %>">Download PDF</a>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Born</th>
+      <th>Died</th>
+      <th>Famous compositions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% while ($list->next) { %>
+    <tr>
+      <td><%= $list->name %></td>
+      <td><%= $list->born %></td>
+      <td><%= $list->died %></td>
+      <td><%= $list->compositions %></td>
+    </tr>
+  <% } %>
+  </tbody>
+</table>

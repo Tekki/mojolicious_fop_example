@@ -1,0 +1,59 @@
+=head1 NAME
+
+Mojolicious - FOP - Example
+
+=head1 DESCRIPTION
+
+This example shows how to create PDF files with L<Mojolicious|http://mojolicio.us>
+and L<Apache FOP|http://xmlgraphics.apache.org/fop>.
+
+Start the script with
+
+  morbo script/mojo_fop
+
+Navigate to
+
+  L<http://localhost:3000>
+
+and click on the download link.
+
+=head1 REQUIREMENTS
+
+=over 2
+
+=item Mojolicious
+
+Install as root with:
+
+  curl get.mojolicio.us | sh
+
+=item FOP
+
+Install (on Ubuntu) with:
+
+  sudo apt-get install fop
+
+=back
+
+=head1 TODO
+
+=over 2
+
+=item Cleanup
+
+Temporary files should be deleted after download.
+
+=item File names
+
+Names of temporary files should change for each request.
+
+=back
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright 2012 by Tekki.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+=cut

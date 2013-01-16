@@ -1,0 +1,7 @@
+*~
+.project
+.includepath
+.settings
+.metadata
+*.log
+tmp/*
