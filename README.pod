@@ -11,11 +11,7 @@ Start the script with
 
   morbo script/mojo_fop
 
-Navigate to
-
-  L<http://localhost:3000>
-
-and click on the download link.
+Navigate to L<http://localhost:3000/> and click on the download link.
 
 =head1 REQUIREMENTS
 
