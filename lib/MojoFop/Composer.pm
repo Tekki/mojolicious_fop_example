@@ -17,17 +17,26 @@ sub list {
     pdf=> sub {
       my $base = catdir(dirname(__FILE__), '../../tmp');
 
-      my $fofile = "$base/composers.fo";
+      srand;
+      my $fileid = time . int rand 10000;
+      my $fofile = "$base/$fileid.fo";
       open my $out, '>', $fofile;
       print $out $self->render_partial(format => 'fo');
       close $out;
 
-      my $pdffile = "$base/composers.pdf";
+      my $pdffile = "$base/$fileid.pdf";
       system 'fop', $fofile, $pdffile;
+
+      $self->on(
+        finish => sub {
+          unlink "$base/$fileid.pdf";
+          unlink "$base/$fileid.fo";
+        }
+      );
 
       $self->stash(pdffile => $pdffile);
       $self->res->headers->content_disposition('attachment; filename=composers.pdf;');
-      $self->render_static("../tmp/composers.pdf");
+      $self->render_static("../tmp/$fileid.pdf");
     },
   );
 

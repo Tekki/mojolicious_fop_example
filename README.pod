@@ -31,20 +31,6 @@ Install (on Ubuntu) with:
 
 =back
 
-=head1 TODO
-
-=over 2
-
-=item Cleanup
-
-Temporary files should be deleted after download.
-
-=item File names
-
-Names of temporary files should change for each request.
-
-=back
-
 =head1 COPYRIGHT & LICENSE
 
 Copyright 2012 by Tekki.
